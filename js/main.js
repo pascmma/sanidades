@@ -3,7 +3,7 @@
    ========================================================= */
 const IMAGENES = [
   { src: "images/foto1.jpg", titulo: "Amanecer" },
-  { src: "images/foto2.jpg", titulo: "Océano" },
+  { src: "images/oceanos2.jpg", titulo: "Océano" },
   { src: "images/foto3.jpg", titulo: "Bosque" },
   { src: "images/foto4.jpg", titulo: "Atardecer" }
 ];
