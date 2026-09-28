@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galería con carruseles</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Rios de Fortaleza</h1>
+    <p>Eventos de </p>
+  </header>
+
+  <main>
+    <!-- efecto fade -->
+    <section>
+      <h2>Destacados</h2>
+      <div class="fade" id="fade" aria-roledescription="carrusel">
+        <button class="nav prev" aria-label="Anterior">‹</button>
+        <button class="nav next" aria-label="Siguiente">›</button>
+        <div class="dots" id="dots"></div>
+      </div>
+    </section>
+
+    <!-- Carrusel de videos -->
+    <section>
+      <h2>Videos</h2>
+      <div class="vwrap">
+        <button class="nav prev" id="vprev" aria-label="Video anterior">‹</button>
+        <div class="vtrack" id="vtrack"></div>
+        <button class="nav next" id="vnext" aria-label="Video siguiente">›</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

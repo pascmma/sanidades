@@ -1,0 +1,163 @@
+:root {
+  --bg: #f6f5f2;
+  --fg: #1c1b19;
+  --card: #fff;
+  --muted: #6b6862;
+  --accent: #d9480f;
+  --line: #e2dfd8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #151412;
+    --fg: #f1efea;
+    --card: #201f1c;
+    --muted: #a09c93;
+    --accent: #ff8a4c;
+    --line: #34322d;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+header { text-align: center; padding: 2rem 1rem 1rem; }
+h1 { margin: 0; font-size: clamp(1.6rem, 4vw, 2.6rem); letter-spacing: -0.02em; }
+header p { margin: 0.4rem 0 0; color: var(--muted); }
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+h2 { font-size: 1.2rem; margin: 0 0 0.8rem; }
+
+/* ---------- Botones de navegación (compartidos) ---------- */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  z-index: 2;
+}
+.nav:hover { background: rgba(0, 0, 0, 0.7); }
+.prev { left: 0.6rem; }
+.next { right: 0.6rem; }
+
+/* ---------- Carrusel de imágenes con fade ---------- */
+.fade {
+  position: relative;
+  aspect-ratio: 16 / 8;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+
+.fade .slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+.fade .slide.on { opacity: 1; pointer-events: auto; }
+
+.fade img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.fade .cap {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 2rem 1.2rem 1rem;
+  color: #fff;
+  font-weight: 600;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+}
+
+.dots { position: absolute; bottom: 0.6rem; right: 1rem; display: flex; gap: 0.4rem; z-index: 2; }
+.dots button {
+  width: 10px; height: 10px;
+  padding: 0; border: 0; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+.dots button.on { background: #fff; transform: scale(1.25); }
+
+/* ---------- Carrusel de videos ---------- */
+.vwrap { position: relative; }
+.vwrap .nav { top: 40%; }
+
+.vtrack {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+}
+
+.vcard {
+  flex: 0 0 calc((100% - 2rem) / 3);
+  scroll-snap-align: start;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.vcard video,
+.vcard .ph {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  background: #000;
+  object-fit: cover;
+}
+
+.vcard .ph {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1rem;
+  color: #fff;
+  font-size: 0.85rem;
+  background: linear-gradient(135deg, #334155, #0f172a);
+}
+.vcard .ph b { display: block; font-size: 2rem; }
+.vcard h3 { margin: 0; padding: 0.7rem 0.9rem; font-size: 0.95rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .vcard { flex-basis: calc((100% - 1rem) / 2); }
+}
+
+@media (max-width: 560px) {
+  .fade { aspect-ratio: 4 / 3; }
+  .vcard { flex-basis: 88%; }
+  .nav { width: 34px; height: 34px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade .slide { transition: none; }
+  .vtrack { scroll-behavior: auto; }
+}
