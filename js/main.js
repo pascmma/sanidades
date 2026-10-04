@@ -2,17 +2,16 @@
    CONFIGURACIÓN: cambia estas rutas por tus propios archivos
    ========================================================= */
 const IMAGENES = [
-  { src: "images/foto1.jpg", titulo: "Amanecer" },
-  { src: "images/foto2.jpg", titulo: "Océano" },
-  { src: "images/foto3.jpg", titulo: "Bosque" },
-  { src: "images/foto4.jpg", titulo: "Atardecer" }
+  { src: "images/testImg1.jpg", titulo: "Amanecer" },
+  { src: "images/testImg2.jpg", titulo: "Océano" },
+  { src: "images/testImg3.jpg", titulo: "Bosque" },
+  { src: "images/testImg5.jpg", titulo: "Atardecer" }
 ];
 
 const VIDEOS = [
-  { src: "videos/testimonio1.mp4", titulo: "Testimonio de María" },
-  { src: "videos/testimonio2.mp4", titulo: "Testimonio de Carlos" },
-  { src: "videos/testimonio3.mp4", titulo: "Testimonio de Ana" },
-  { src: "videos/testimonio4.mp4", titulo: "Testimonio de Luis" }
+  { src: "videos/video1.mp4", titulo: "Testimonio1" },
+  { src: "videos/video2.mp4", titulo: "Testimonio2" },
+  { src: "videos/video3.mp4", titulo: "Testimonio3" }
 ];
 
 const INTERVALO_MS = 4500; // tiempo entre imágenes
